@@ -1,6 +1,6 @@
 package com.bakigoal.web.controller;
 
-import com.bakigoal.service.BookService;
+import com.bakigoal.web.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

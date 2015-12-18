@@ -1,4 +1,4 @@
-package com.bakigoal.service;
+package com.bakigoal.web.service;
 
 import com.bakigoal.model.Book;
 

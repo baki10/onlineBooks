@@ -1,23 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Maven + Spring MVC + @JavaConfig</title>
- 
-<spring:url value="/resources/core/css/hello.css" var="coreCss" />
-<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
-<link href="${bootstrapCss}" rel="stylesheet" />
-<link href="${coreCss}" rel="stylesheet" />
+    <title>home</title>
+    <c:import url="fragments/static_files.jsp"/>
 </head>
- 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Spring 3 MVC Project @JavaConfig</a>
-	</div>
-  </div>
-</nav>
+    <c:import url="fragments/header.jsp"/>
  
 <div class="jumbotron">
   <div class="container">
@@ -64,20 +54,9 @@
                         </table>
 
   </div>
- 
- 
-  <hr>
-  <footer>
-	<p>&copy; Bakigoal 2015</p>
-  </footer>
 </div>
  
-<spring:url value="/resources/core/css/hello.js" var="coreJs" />
-<spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs" />
- 
-<script src="${coreJs}"></script>
-<script src="${bootstrapJs}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
- 
+
+    <c:import url="fragments/footer.jsp"/>
 </body>
 </html>
