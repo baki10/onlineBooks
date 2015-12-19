@@ -9,9 +9,9 @@
 </head>
 <body>
     <c:import url="fragments/header.jsp"/>
-    <div align="center">
-        <h1>Files have been uploaded successfully!</h1>
-    </div>
+    <!--starts body-->
+    <h1>This is body!</h1>
+    <!--ends body-->
     <c:import url="fragments/footer.jsp"/>
 </body>
 </html>

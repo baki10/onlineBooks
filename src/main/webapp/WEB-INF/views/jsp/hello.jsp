@@ -9,7 +9,6 @@
 </head>
     <c:import url="fragments/header.jsp"/>
 
-<div class="jumbotron">
   <div class="container">
 	<h1>${title}</h1>
 	<p>
@@ -52,8 +51,6 @@
 		</p>
 	</div>
   </div>
-</div>
-
 
     <c:import url="fragments/footer.jsp"/>
 </body>

@@ -9,24 +9,6 @@
 </head>
     <c:import url="fragments/header.jsp"/>
  
-<div class="jumbotron">
-  <div class="container">
-	<h1>${title}</h1>
-	<p>
-		<c:if test="${not empty name}">
-			Hello ${name}
-		</c:if>
- 
-		<c:if test="${empty name}">
-			Welcome Welcome!
-		</c:if>
-    </p>
-    <p>
-		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-	</p>
-	</div>
-</div>
- 
 <div class="container">
  
   <div class="row">
@@ -34,11 +16,11 @@
 		<a class="btn btn-primary btn-lg" href="<c:url value="/createBook"/>"  role="button">Create Random Book</a>
 	</p>
         <div class="table-responsive cart_info">
-                        <table class="table table-condensed">
-                            <thead>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Description</td>
+             <table class="table table-condensed">
+                   <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Description</td>
                                     <td>Date</td>
                                 </tr>
                             </thead>
@@ -54,7 +36,6 @@
                         </table>
 
   </div>
-</div>
  
 
     <c:import url="fragments/footer.jsp"/>
