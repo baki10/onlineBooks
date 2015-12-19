@@ -5,6 +5,15 @@
 	<div class="navbar-header">
 		<a class="navbar-brand" href="<c:url value="/home"/>">Online Library</a>
 	</div>
+	<div class="navbar-right" style="margin-top: 8px; color:white">
+         <c:if test="${not empty name}">
+        	Hello, ${name}!
+         </c:if>
+
+         <c:if test="${empty name}">
+        	Welcome!
+         </c:if>
+    </div>
   </div>
 </nav>
 <div class="jumbotron">

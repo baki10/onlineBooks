@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.ResourceBundleViewResolver;
 
 /**
  * Created by ilmir on 18.12.15.
@@ -24,11 +25,20 @@ public class SpringAppConfig extends WebMvcConfigurerAdapter {
   }
 
   @Bean
+  public ResourceBundleViewResolver viewResolver1() {
+    ResourceBundleViewResolver viewResolver = new ResourceBundleViewResolver();
+    viewResolver.setBasename("views");
+    viewResolver.setOrder(1);
+    return viewResolver;
+  }
+
+  @Bean
   public InternalResourceViewResolver viewResolver() {
     InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
     viewResolver.setViewClass(JstlView.class);
     viewResolver.setPrefix("/WEB-INF/views/jsp/");
     viewResolver.setSuffix(".jsp");
+    viewResolver.setOrder(2);
     return viewResolver;
   }
 

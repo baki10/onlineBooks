@@ -11,45 +11,26 @@
 
   <div class="container">
 	<h1>${title}</h1>
-	<p>
-		<c:if test="${not empty name}">
-			Hello ${name}
-		</c:if>
- 
-		<c:if test="${empty name}">
-			Welcome Welcome!
-		</c:if>
-    </p>
-    <p>
-		<a class="btn btn-primary btn-lg" href="" role="button">Learn more</a>
-	</p>
-	</div>
-</div>
+  </div>
  
 <div class="container">
  
   <div class="row">
 	<div class="col-md-4">
-		<h2>Heading</h2>
-		<p>ABC</p>
+		<h2>Show all Books</h2>
+		<p>Get me all books from database</p>
 		<p>
 			<a class="btn btn-primary btn-lg" href="<c:url value="/books"/>"  role="button">All Books</a>
 		</p>
 	</div>
 	<div class="col-md-4">
-		<h2>Heading</h2>
-		<p>ABC</p>
+		<h2>Uploaded files</h2>
+		<p>Uploaded files to database</p>
 		<p>
-			<a class="btn btn-primary btn-lg" href="<c:url value="/uploadFile"/>"  role="button">Upload files</a>
+			<a class="btn btn-primary btn-lg" href="<c:url value="/uploadedFiles"/>"  role="button">Uploaded files</a>
 		</p>
 	</div>
-	<div class="col-md-4">
-		<h2>Heading</h2>
-		<p>ABC</p>
-		<p>
-			<a class="btn btn-default" href="#" role="button">View details</a>
-		</p>
-	</div>
+
   </div>
 
     <c:import url="fragments/footer.jsp"/>

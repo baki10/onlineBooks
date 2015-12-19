@@ -14,6 +14,8 @@ public class HelloController {
   public String printWelcome(ModelMap model) {
 
     model.addAttribute("message", "Spring 4 MVC Hello World");
+    model.addAttribute("name", "Bakigoal");
+    model.addAttribute("title","Title from HelloController");
     return "hello";
 
   }
