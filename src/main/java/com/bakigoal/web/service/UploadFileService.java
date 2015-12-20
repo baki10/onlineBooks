@@ -1,6 +1,6 @@
 package com.bakigoal.web.service;
 
-import com.bakigoal.model.UploadFile;
+import com.bakigoal.dao.entity.UploadFile;
 
 import java.util.List;
 

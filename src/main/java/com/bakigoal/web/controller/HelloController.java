@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class HelloController {
 
@@ -17,6 +19,13 @@ public class HelloController {
     model.addAttribute("name", "Bakigoal");
     model.addAttribute("title","Title from HelloController");
     return "hello";
+
+  }
+
+  @RequestMapping(value = {"/endSession"}, method = RequestMethod.GET)
+  public String printWelcome(HttpSession session) {
+    session.invalidate();
+    return "redirect:home";
 
   }
 

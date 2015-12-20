@@ -1,7 +1,7 @@
 package com.bakigoal.servlet;
 
-import com.bakigoal.config.HibernateConfig;
-import com.bakigoal.config.SpringAppConfig;
+import com.bakigoal.servlet.config.HibernateConfig;
+import com.bakigoal.servlet.config.SpringAppConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class MyWebInitializer extends

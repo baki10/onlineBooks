@@ -1,6 +1,6 @@
 package com.bakigoal.web.controller;
 
-import com.bakigoal.model.UploadFile;
+import com.bakigoal.dao.entity.UploadFile;
 import com.bakigoal.util.FilesUtil;
 import com.bakigoal.web.service.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import java.io.IOException;
 @Controller
 public class UploadController {
 
-  private static final String PDF_DIR = "src/main/webapp/resources/pdf/";
+  private static final String FILES_DIR = "src/main/webapp/WEB-INF/resources/files/";
 
   @Autowired
   private UploadFileService uploadFileService;
@@ -63,8 +63,15 @@ public class UploadController {
     if (byId == null) {
       return "redirect:uploadedFiles";
     }
-    FilesUtil.writeBytesToFile(byId.getData(), PDF_DIR + byId.getFileName());
-    return "redirect:resources/pdf/" + byId.getFileName();
+    String fileName = byId.getFileName();
+    String[] strings = fileName.split("\\.");
+    if (strings.length < 2) {
+      return "redirect:uploadedFiles";
+    }
+    String fileType = strings[strings.length - 1];
+    String newFileName = byId.getId() + "." + fileType;
+    FilesUtil.writeBytesToFile(byId.getData(), FILES_DIR + newFileName);
+    return "redirect:files/" + newFileName;
   }
 
 }

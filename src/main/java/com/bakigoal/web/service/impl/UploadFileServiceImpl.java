@@ -1,7 +1,7 @@
 package com.bakigoal.web.service.impl;
 
-import com.bakigoal.dao.UploadFileDAO;
-import com.bakigoal.model.UploadFile;
+import com.bakigoal.dao.SimpleDao;
+import com.bakigoal.dao.entity.UploadFile;
 import com.bakigoal.web.service.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,22 +21,24 @@ public class UploadFileServiceImpl implements UploadFileService {
   protected static Logger logger = Logger.getLogger("UploadFileService");
 
   @Autowired
-  private UploadFileDAO uploadFileDAO;
+  private SimpleDao simpleDao;
 
   @Override
   public void save(UploadFile uploadFile) {
     logger.log(Level.INFO, "Start saving file to db");
-    uploadFileDAO.save(uploadFile);
+    simpleDao.save(uploadFile);
     logger.log(Level.INFO, "Finish saving file to db");
   }
 
   @Override
   public List<UploadFile> getAll() {
-    return uploadFileDAO.getAll();
+    simpleDao.setEntityClass(UploadFile.class);
+    return simpleDao.getAll();
   }
 
   @Override
   public UploadFile getById(Long id) {
-    return uploadFileDAO.getById(id);
+    simpleDao.setEntityClass(UploadFile.class);
+    return (UploadFile) simpleDao.findById(id);
   }
 }

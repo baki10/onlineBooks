@@ -1,13 +1,10 @@
 package com.bakigoal.dao;
 
-import com.bakigoal.model.Book;
-
-import java.util.List;
+import com.bakigoal.dao.entity.Book;
 
 /**
  * Created by ilmir on 17.12.15.
  */
-public interface BookDao {
-  List<Book> getAllBooks();
+public interface BookDao extends BaseDao<Book, Long> {
   void createRandomBook();
 }

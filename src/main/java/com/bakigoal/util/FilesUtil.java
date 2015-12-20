@@ -15,4 +15,18 @@ public class FilesUtil {
     fileOuputStream.write(data);
     fileOuputStream.close();
   }
+
+  public static void deleteAllFilesInDirectory(String filesDir) {
+    File directory = new File(filesDir);
+
+    // Get all files in directory
+    File[] files = directory.listFiles();
+    for (File file : files) {
+      // Delete each file
+      if (!file.delete()) {
+        // Failed to delete file
+        System.out.println("Failed to delete " + file);
+      }
+    }
+  }
 }

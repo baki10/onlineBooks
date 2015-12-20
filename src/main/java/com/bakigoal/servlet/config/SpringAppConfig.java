@@ -1,4 +1,4 @@
-package com.bakigoal.config;
+package com.bakigoal.servlet.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,7 +21,8 @@ public class SpringAppConfig extends WebMvcConfigurerAdapter {
 
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    registry.addResourceHandler("/resources/**").addResourceLocations("/WEB-INF/resources/");
+    registry.addResourceHandler("/files/**").addResourceLocations("/WEB-INF/resources/files/");
   }
 
   @Bean

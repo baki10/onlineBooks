@@ -7,7 +7,7 @@
 	</div>
 	<div class="navbar-right" style="margin-top: 8px; color:white">
          <c:if test="${not empty name}">
-        	Hello, ${name}!
+        	Hello, ${name}! <a  href="<c:url value="/endSession"/>">End session</a>
          </c:if>
 
          <c:if test="${empty name}">
