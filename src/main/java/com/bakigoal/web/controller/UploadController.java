@@ -70,7 +70,9 @@ public class UploadController {
     }
     String fileType = strings[strings.length - 1];
     String newFileName = byId.getId() + "." + fileType;
-    FilesUtil.writeBytesToFile(byId.getData(), FILES_DIR + newFileName);
+    if(!FilesUtil.fileExists(FILES_DIR + newFileName)){
+      FilesUtil.writeBytesToFile(byId.getData(), FILES_DIR + newFileName);
+    }
     return "redirect:files/" + newFileName;
   }
 
