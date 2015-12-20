@@ -11,21 +11,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "FILES_UPLOAD")
-public class UploadFile {
-  private long id;
+public class UploadFile extends BaseEntity {
+
   private String fileName;
   private byte[] data;
-
-  @Id
-  @GeneratedValue
-  @Column(name = "FILE_ID")
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
 
   @Column(name = "FILE_NAME")
   public String getFileName() {

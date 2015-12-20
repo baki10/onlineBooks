@@ -1,8 +1,6 @@
 package com.bakigoal.dao.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
@@ -11,10 +9,8 @@ import java.util.Date;
  * Created by ilmir on 17.12.15.
  */
 @Entity
-public class Book {
-  @GeneratedValue
-  @Id
-  private Integer id;
+public class Book extends BaseEntity {
+
   private String title;
   @Temporal(TemporalType.DATE)
   private Date published;
@@ -31,19 +27,11 @@ public class Book {
   public String toString() {
     final StringBuilder sb = new StringBuilder();
     sb.append("Book");
-    sb.append("{id=").append(id);
+    sb.append("{id=").append(getId());
     sb.append(", title='").append(title).append('\'');
     sb.append(", published=").append(published);
     sb.append('}');
     return sb.toString();
-  }
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
   }
 
   public String getTitle() {
