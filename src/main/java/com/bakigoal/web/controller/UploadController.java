@@ -2,7 +2,7 @@ package com.bakigoal.web.controller;
 
 import com.bakigoal.dao.entity.UploadFile;
 import com.bakigoal.util.FilesUtil;
-import com.bakigoal.web.service.UploadFileService;
+import com.bakigoal.service.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

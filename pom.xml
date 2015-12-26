@@ -18,6 +18,7 @@
         <junit.version>4.8.2</junit.version>
         <fileupload.version>1.3.1</fileupload.version>
         <itex.version>5.5.8</itex.version>
+        <log4j.version>1.2.17</log4j.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -40,6 +41,13 @@
             <version>${spring.version}</version>
             <type>jar</type>
             <scope>compile</scope>
+        </dependency>
+
+        <!--log4j-->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
 
         <!-- Hibernate ORM framework -->
