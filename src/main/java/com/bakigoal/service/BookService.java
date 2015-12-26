@@ -1,4 +1,4 @@
-package com.bakigoal.web.service;
+package com.bakigoal.service;
 
 import com.bakigoal.dao.entity.Book;
 

@@ -1,8 +1,8 @@
-package com.bakigoal.web.service.impl;
+package com.bakigoal.service.impl;
 
 import com.bakigoal.dao.BookDao;
 import com.bakigoal.dao.entity.Book;
-import com.bakigoal.web.service.BookService;
+import com.bakigoal.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

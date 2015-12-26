@@ -1,8 +1,8 @@
-package com.bakigoal.web.service.impl;
+package com.bakigoal.service.impl;
 
 import com.bakigoal.dao.SimpleDao;
 import com.bakigoal.dao.entity.UploadFile;
-import com.bakigoal.web.service.UploadFileService;
+import com.bakigoal.service.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
