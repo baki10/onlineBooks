@@ -1,6 +1,6 @@
-package com.bakigoal.dao.impl;
+package com.bakigoal.repository.impl;
 
-import com.bakigoal.dao.BaseDao;
+import com.bakigoal.repository.BaseDao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

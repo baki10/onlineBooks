@@ -1,6 +1,6 @@
 package com.bakigoal.servlet.config;
 
-import com.bakigoal.dao.entity.Book;
+import com.bakigoal.model.Book;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
@@ -24,7 +24,7 @@ public class PDFBuilder extends AbstractITextPdfView {
   protected void buildPdfDocument(Map<String, Object> model, Document doc,
                                   PdfWriter writer, HttpServletRequest request, HttpServletResponse response)
       throws Exception {
-    // get data entity which is passed by the Spring container
+    // get data model which is passed by the Spring container
     List<Book> listBooks = (List<Book>) model.get("listBooks");
 
     doc.add(new Paragraph("Recommended books for Spring framework"));

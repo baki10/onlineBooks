@@ -1,4 +1,4 @@
-package com.bakigoal.dao.entity;
+package com.bakigoal.model;
 
 import java.io.Serializable;
 

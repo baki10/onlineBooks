@@ -1,4 +1,4 @@
-package com.bakigoal.dao.entity;
+package com.bakigoal.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,6 +1,6 @@
-package com.bakigoal.web.controller;
+package com.bakigoal.web;
 
-import com.bakigoal.dao.entity.UploadFile;
+import com.bakigoal.model.UploadFile;
 import com.bakigoal.util.FilesUtil;
 import com.bakigoal.service.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;

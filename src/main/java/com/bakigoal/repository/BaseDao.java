@@ -1,4 +1,4 @@
-package com.bakigoal.dao;
+package com.bakigoal.repository;
 
 import java.util.List;
 

@@ -14,11 +14,13 @@
         <servletapi.version>3.1.0</servletapi.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <hibernate.version>4.3.6.Final</hibernate.version>
+        <hibernate.validator.version>5.2.2.Final</hibernate.validator.version>
         <dbcp.version>1.4</dbcp.version>
         <junit.version>4.8.2</junit.version>
         <fileupload.version>1.3.1</fileupload.version>
         <itex.version>5.5.8</itex.version>
         <log4j.version>1.2.17</log4j.version>
+        <javaee.version>6.0</javaee.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -55,6 +57,12 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.version}</version>
         </dependency>
 
         <!-- Java Servlet and JSP -->
@@ -105,6 +113,8 @@
             <artifactId>itextpdf</artifactId>
             <version>${itex.version}</version>
         </dependency>
+
+
     </dependencies>
 
     <build>

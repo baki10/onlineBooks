@@ -1,6 +1,6 @@
 package com.bakigoal.service;
 
-import com.bakigoal.dao.entity.Book;
+import com.bakigoal.model.Book;
 
 import java.util.List;
 

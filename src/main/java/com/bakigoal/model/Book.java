@@ -1,6 +1,8 @@
-package com.bakigoal.dao.entity;
+package com.bakigoal.model;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
@@ -12,8 +14,8 @@ import java.util.Date;
 public class Book extends BaseEntity {
 
   private String title;
-  @Temporal(TemporalType.DATE)
   private Date published;
+  private Owner owner;
 
   public Book(String title, Date published) {
     this.title = title;
@@ -42,11 +44,22 @@ public class Book extends BaseEntity {
     this.title = title;
   }
 
+  @Temporal(TemporalType.DATE)
   public Date getPublished() {
     return published;
   }
 
   public void setPublished(Date published) {
     this.published = published;
+  }
+
+  @ManyToOne
+  @JoinColumn(name = "owner_id")
+  public Owner getOwner() {
+    return owner;
+  }
+
+  public void setOwner(Owner owner) {
+    this.owner = owner;
   }
 }

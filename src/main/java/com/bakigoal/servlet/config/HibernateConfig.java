@@ -32,7 +32,7 @@ public class HibernateConfig{
   public LocalSessionFactoryBean sessionFactory() {
     LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
     sessionFactory.setDataSource(restDataSource());
-    sessionFactory.setPackagesToScan(new String[]{"com.bakigoal.dao.entity"});
+    sessionFactory.setPackagesToScan(new String[]{"com.bakigoal.model"});
     sessionFactory.setHibernateProperties(hibernateProperties());
 
     return sessionFactory;
