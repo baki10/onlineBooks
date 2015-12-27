@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 	<div class="navbar-header">
@@ -11,7 +12,7 @@
          </c:if>
 
          <c:if test="${empty name}">
-        	Welcome!
+            <fmt:message key="welcome"/>
          </c:if>
     </div>
   </div>
