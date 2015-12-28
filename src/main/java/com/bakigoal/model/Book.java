@@ -1,8 +1,13 @@
 package com.bakigoal.model;
 
+import com.bakigoal.util.FieldSize;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
@@ -13,11 +18,13 @@ import java.util.Date;
 @Entity
 public class Book extends BaseEntity {
 
-  private String title;
-  private Date published;
-  private Owner owner;
+  private String title;         //название
+  private String published;     //год публикации
+  private Author author;        //автор
+  private String description;   //описание
+  private UploadFile photo;     //обложка
 
-  public Book(String title, Date published) {
+  public Book(String title, String published) {
     this.title = title;
     this.published = published;
   }
@@ -25,17 +32,7 @@ public class Book extends BaseEntity {
   public Book() {
   }
 
-  @Override
-  public String toString() {
-    final StringBuilder sb = new StringBuilder();
-    sb.append("Book");
-    sb.append("{id=").append(getId());
-    sb.append(", title='").append(title).append('\'');
-    sb.append(", published=").append(published);
-    sb.append('}');
-    return sb.toString();
-  }
-
+  @Column(length = FieldSize.TITLE)
   public String getTitle() {
     return title;
   }
@@ -44,22 +41,41 @@ public class Book extends BaseEntity {
     this.title = title;
   }
 
-  @Temporal(TemporalType.DATE)
-  public Date getPublished() {
+  @Column(length = FieldSize.YEAR)
+  public String getPublished() {
     return published;
   }
 
-  public void setPublished(Date published) {
+  public void setPublished(String published) {
     this.published = published;
   }
 
   @ManyToOne
-  @JoinColumn(name = "owner_id")
-  public Owner getOwner() {
-    return owner;
+  @JoinColumn(name = "author_id")
+  public Author getAuthor() {
+    return author;
   }
 
-  public void setOwner(Owner owner) {
-    this.owner = owner;
+  public void setAuthor(Author author) {
+    this.author = author;
+  }
+
+  @Column(length = FieldSize.DESCR)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  @ManyToOne
+  @JoinColumn(name = "photo_id")
+  public UploadFile getPhoto() {
+    return photo;
+  }
+
+  public void setPhoto(UploadFile photo) {
+    this.photo = photo;
   }
 }

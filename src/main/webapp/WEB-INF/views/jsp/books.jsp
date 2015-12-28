@@ -13,17 +13,23 @@
  
   <div class="row">
     <p>
-		<a class="btn btn-primary btn-lg" href="<c:url value="/createBook"/>"  role="button">Create Random Book</a>
+		<a class="btn btn-primary btn-lg" href="<c:url value="/books/createRandomBook"/>"  role="button">Create Random Book</a>
 	</p>
     <p>
-		<a class="btn btn-primary btn-lg" href="<c:url value="/downloadPDF"/>"  role="button">Books in pdf</a>
+		<a class="btn btn-primary btn-lg" href="<c:url value="/books/downloadPDF"/>"  role="button">Books in pdf</a>
+	</p>
+    <p>
+		<a class="btn btn-primary btn-lg" href="<c:url value="/books/new"/>"  role="button">Add Book</a>
 	</p>
         <div class="table-responsive cart_info">
              <table class="table table-condensed">
                    <thead>
                         <tr>
                             <td>ID</td>
+                            <td>Title</td>
                             <td>Description</td>
+                                    <td>Author</td>
+                                    <td>Photo</td>
                                     <td>Date</td>
                                 </tr>
                             </thead>
@@ -32,6 +38,9 @@
                                     <tr>
                                         <td>${i.id}</td>
                                         <td>${i.title}</td>
+                                        <td>${i.description}</td>
+                                        <td>${i.author.name}</td>
+                                        <td>${i.photo.fileName}</td>
                                         <td>${i.published}</td>
                                     </tr>
                                 </c:forEach>

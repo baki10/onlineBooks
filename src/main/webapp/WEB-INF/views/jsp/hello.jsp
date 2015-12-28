@@ -20,7 +20,7 @@
 		<h2>Show all Books</h2>
 		<p>Get me all books from database</p>
 		<p>
-			<a class="btn btn-primary btn-lg" href="<c:url value="/books"/>"  role="button">All Books</a>
+			<a class="btn btn-primary btn-lg" href="<c:url value="/books/all"/>"  role="button">All Books</a>
 		</p>
 	</div>
 	<div class="col-md-4">

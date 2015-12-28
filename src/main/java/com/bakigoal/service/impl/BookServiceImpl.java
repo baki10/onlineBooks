@@ -2,6 +2,7 @@ package com.bakigoal.service.impl;
 
 import com.bakigoal.repository.BookDao;
 import com.bakigoal.model.Book;
+import com.bakigoal.repository.SimpleDao;
 import com.bakigoal.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,9 @@ public class BookServiceImpl implements BookService {
   @Autowired
   private BookDao bookDao;
 
+  @Autowired
+  private SimpleDao simpleDao;
+
   @Override
   public List<Book> getAllBooks() {
     return bookDao.getAll();
@@ -30,5 +34,12 @@ public class BookServiceImpl implements BookService {
   @Override
   public void createRandomBook() {
     bookDao.createRandomBook();
+  }
+
+  @Override
+  public void createOrUpdateBook(Book book) {
+    simpleDao.save(book.getAuthor());
+    simpleDao.save(book.getPhoto());
+    bookDao.save(book);
   }
 }

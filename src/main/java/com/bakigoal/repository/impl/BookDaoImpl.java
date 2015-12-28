@@ -19,7 +19,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book, Long> implements BookDao {
 
   @Override
   public void createRandomBook() {
-    save(new Book("Hibernate " + new Random().nextInt(100), new Date()));
+    save(new Book("Hibernate " + new Random().nextInt(100), "2014"));
   }
 
 }

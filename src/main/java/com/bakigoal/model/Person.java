@@ -1,5 +1,6 @@
 package com.bakigoal.model;
 
+import com.bakigoal.util.FieldSize;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ public class Person extends BaseEntity {
   protected String firstName;
   protected String lastName;
 
-  @Column(name = "first_name")
+  @Column(name = "first_name", length = FieldSize.NAME)
   @NotEmpty
   public String getFirstName() {
     return this.firstName;
@@ -24,7 +25,7 @@ public class Person extends BaseEntity {
     this.firstName = firstName;
   }
 
-  @Column(name = "last_name")
+  @Column(name = "last_name", length = FieldSize.NAME)
   @NotEmpty
   public String getLastName() {
     return this.lastName;
