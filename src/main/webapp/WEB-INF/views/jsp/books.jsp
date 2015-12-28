@@ -31,6 +31,7 @@
                                     <td>Author</td>
                                     <td>Photo</td>
                                     <td>Date</td>
+                                    <td></td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,6 +43,9 @@
                                         <td>${i.author.name}</td>
                                         <td>${i.photo.fileName}</td>
                                         <td>${i.published}</td>
+                                        <td>
+                                            <a class="btn btn-primary" href="<c:url value="/books/${i.id}/edit"/>"  role="button">Edit Book</a>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

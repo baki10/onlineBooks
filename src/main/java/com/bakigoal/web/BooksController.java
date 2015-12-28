@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -72,8 +73,43 @@ public class BooksController {
 
     bookService.createOrUpdateBook(book);
 
-    return "redirect:all";
+    return "redirect:/books/all";
   }
+
+
+  @RequestMapping(value = "/books/{bookId}/edit", method = RequestMethod.GET)
+  public String initUpdateForm(@PathVariable("bookId") int bookId, ModelMap model) {
+    Book book = bookService.findBookById(bookId);
+    model.addAttribute("book", book);
+    model.addAttribute("yearList", getYears());
+    return "createOrUpdateBookForm";
+  }
+
+  @RequestMapping(value = "/books/{bookId}/edit", method = RequestMethod.POST)
+  public String processUpdateForm(ModelMap model, @Valid Book book, BindingResult result,
+                                    @RequestParam CommonsMultipartFile[] file) {
+    if (result.hasErrors()) {
+      model.put("book", book);
+      return "createOrUpdateBookForm";
+    }
+    if (file!= null && file.length > 0) {
+      for (CommonsMultipartFile aFile : file) {
+        if (aFile.getOriginalFilename() == null || aFile.getBytes().length < 1) {
+          continue;
+        }
+
+        UploadFile uploadFile = new UploadFile();
+        uploadFile.setFileName(aFile.getOriginalFilename());
+        uploadFile.setData(aFile.getBytes());
+        book.setPhoto(uploadFile);
+      }
+    }
+
+    bookService.createOrUpdateBook(book);
+
+    return "redirect:/books/all";
+  }
+
 
   /**
    * Handle request to download a PDF document

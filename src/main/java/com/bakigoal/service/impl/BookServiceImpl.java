@@ -1,5 +1,7 @@
 package com.bakigoal.service.impl;
 
+import com.bakigoal.model.Author;
+import com.bakigoal.model.UploadFile;
 import com.bakigoal.repository.BookDao;
 import com.bakigoal.model.Book;
 import com.bakigoal.repository.SimpleDao;
@@ -38,8 +40,35 @@ public class BookServiceImpl implements BookService {
 
   @Override
   public void createOrUpdateBook(Book book) {
-    simpleDao.save(book.getAuthor());
-    simpleDao.save(book.getPhoto());
-    bookDao.save(book);
+    if (book == null) {
+      return;
+    }
+    Author author = book.getAuthor();
+    if (author != null) {
+      if (author.isNew()) {
+        simpleDao.save(author);
+      } else {
+        simpleDao.update(author);
+      }
+    }
+    UploadFile photo = book.getPhoto();
+    if (photo != null) {
+      if (photo.isNew()) {
+        simpleDao.save(photo);
+      } else {
+        simpleDao.update(photo);
+      }
+    }
+
+    if (book.isNew()) {
+      bookDao.save(book);
+    } else {
+      bookDao.update(book);
+    }
+  }
+
+  @Override
+  public Book findBookById(long bookId) {
+    return bookDao.findById(bookId);
   }
 }

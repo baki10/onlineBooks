@@ -12,4 +12,6 @@ public interface BookService {
   void createRandomBook();
 
   void createOrUpdateBook(Book book);
+
+  Book findBookById(long bookId);
 }
