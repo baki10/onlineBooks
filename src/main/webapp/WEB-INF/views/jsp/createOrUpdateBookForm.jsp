@@ -14,6 +14,7 @@
 
     <form:form modelAttribute="book" class="form-horizontal" enctype="multipart/form-data">
             <input type="hidden" name="id" value="${book.id}"/>
+            <input type="hidden" name="photo.id" value="${book.photo.id}"/>
             <div class="control-group" id="author">
                 <table>
                     <tr>

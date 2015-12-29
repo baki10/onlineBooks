@@ -56,7 +56,8 @@ public class BookServiceImpl implements BookService {
       if (photo.isNew()) {
         simpleDao.save(photo);
       } else {
-        simpleDao.update(photo);
+        simpleDao.setEntityClass(UploadFile.class);
+        photo = (UploadFile) simpleDao.findById(photo.getId());
       }
     }
 
