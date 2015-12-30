@@ -1,4 +1,4 @@
-package com.bakigoal.repository;
+package com.bakigoal.dao;
 
 import com.bakigoal.model.Book;
 

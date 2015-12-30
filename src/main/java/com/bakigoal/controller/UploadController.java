@@ -1,8 +1,8 @@
-package com.bakigoal.web;
+package com.bakigoal.controller;
 
 import com.bakigoal.model.UploadFile;
-import com.bakigoal.util.FilesUtil;
 import com.bakigoal.service.UploadFileService;
+import com.bakigoal.util.FilesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -70,7 +70,7 @@ public class UploadController {
     }
     String fileType = strings[strings.length - 1];
     String newFileName = byId.getId() + "." + fileType;
-    if(!FilesUtil.fileExists(FILES_DIR + newFileName)){
+    if (!FilesUtil.fileExists(FILES_DIR + newFileName)) {
       FilesUtil.writeBytesToFile(byId.getData(), FILES_DIR + newFileName);
     }
     return "redirect:files/" + newFileName;

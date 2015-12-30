@@ -2,9 +2,9 @@ package com.bakigoal.service.impl;
 
 import com.bakigoal.model.Author;
 import com.bakigoal.model.UploadFile;
-import com.bakigoal.repository.BookDao;
+import com.bakigoal.dao.BookDao;
 import com.bakigoal.model.Book;
-import com.bakigoal.repository.SimpleDao;
+import com.bakigoal.dao.SimpleDao;
 import com.bakigoal.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,8 +56,7 @@ public class BookServiceImpl implements BookService {
       if (photo.isNew()) {
         simpleDao.save(photo);
       } else {
-        simpleDao.setEntityClass(UploadFile.class);
-        photo = (UploadFile) simpleDao.findById(photo.getId());
+        photo = (UploadFile) simpleDao.findById(UploadFile.class, photo.getId());
       }
     }
 

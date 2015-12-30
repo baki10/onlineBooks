@@ -1,4 +1,4 @@
-package com.bakigoal.web;
+package com.bakigoal.controller;
 
 import com.bakigoal.model.Author;
 import com.bakigoal.model.Book;
@@ -21,28 +21,35 @@ import java.util.Calendar;
 import java.util.List;
 
 @Controller
+@RequestMapping(value = "/books")
 public class BooksController {
 
   @Autowired
   private BookService bookService;
 
-  @RequestMapping(value = "/books/all", method = RequestMethod.GET)
-  public String books(ModelMap model) {
+  @RequestMapping
+  public String books() {
+    return "redirect:/books/all";
+
+  }
+
+  @RequestMapping(value = "/all", method = RequestMethod.GET)
+  public String allBooks(ModelMap model) {
 
     model.addAttribute("books", bookService.getAllBooks());
     return "books";
 
   }
 
-  @RequestMapping(value = "/books/createRandomBook", method = RequestMethod.GET)
+  @RequestMapping(value = "/createRandomBook", method = RequestMethod.GET)
   public String createRandomBook(ModelMap model) {
 
     bookService.createRandomBook();
-    return "redirect:all";
+    return "redirect:/books/all";
 
   }
 
-  @RequestMapping(value = "/books/new", method = RequestMethod.GET)
+  @RequestMapping(value = "/new", method = RequestMethod.GET)
   public String initCreationForm(ModelMap model) {
     Book book = new Book();
     book.setAuthor(new Author());
@@ -51,14 +58,23 @@ public class BooksController {
     return "createOrUpdateBookForm";
   }
 
-  @RequestMapping(value = "/books/new", method = RequestMethod.POST)
+  @RequestMapping(value = "/new", method = RequestMethod.POST)
   public String processCreationForm(ModelMap model, @Valid Book book, BindingResult result,
                                     @RequestParam CommonsMultipartFile[] file) {
     if (result.hasErrors()) {
       model.put("book", book);
       return "createOrUpdateBookForm";
     }
-    if (file!= null && file.length > 0) {
+    updatePhoto(book, file);
+
+
+    bookService.createOrUpdateBook(book);
+
+    return "redirect:/books/all";
+  }
+
+  private void updatePhoto(Book book, CommonsMultipartFile[] file) {
+    if (file != null && file.length > 0) {
       for (CommonsMultipartFile aFile : file) {
         if (aFile.getOriginalFilename() == null || aFile.getBytes().length < 1) {
           continue;
@@ -70,14 +86,9 @@ public class BooksController {
         book.setPhoto(uploadFile);
       }
     }
-
-    bookService.createOrUpdateBook(book);
-
-    return "redirect:/books/all";
   }
 
-
-  @RequestMapping(value = "/books/{bookId}/edit", method = RequestMethod.GET)
+  @RequestMapping(value = "/{bookId}/edit", method = RequestMethod.GET)
   public String initUpdateForm(@PathVariable("bookId") int bookId, ModelMap model) {
     Book book = bookService.findBookById(bookId);
     model.addAttribute("book", book);
@@ -85,25 +96,14 @@ public class BooksController {
     return "createOrUpdateBookForm";
   }
 
-  @RequestMapping(value = "/books/{bookId}/edit", method = RequestMethod.POST)
+  @RequestMapping(value = "/{bookId}/edit", method = RequestMethod.POST)
   public String processUpdateForm(ModelMap model, @Valid Book book, BindingResult result,
-                                    @RequestParam CommonsMultipartFile[] file) {
+                                  @RequestParam CommonsMultipartFile[] file) {
     if (result.hasErrors()) {
       model.put("book", book);
       return "createOrUpdateBookForm";
     }
-    if (file!= null && file.length > 0) {
-      for (CommonsMultipartFile aFile : file) {
-        if (aFile.getOriginalFilename() == null || aFile.getBytes().length < 1) {
-          continue;
-        }
-
-        UploadFile uploadFile = new UploadFile();
-        uploadFile.setFileName(aFile.getOriginalFilename());
-        uploadFile.setData(aFile.getBytes());
-        book.setPhoto(uploadFile);
-      }
-    }
+    updatePhoto(book, file);
 
     bookService.createOrUpdateBook(book);
 
@@ -114,7 +114,7 @@ public class BooksController {
   /**
    * Handle request to download a PDF document
    */
-  @RequestMapping(value = "/books/downloadPDF", method = RequestMethod.GET)
+  @RequestMapping(value = "/downloadPDF", method = RequestMethod.GET)
   public ModelAndView downloadExcel() {
     // create some sample data
     List<Book> listBooks = bookService.getAllBooks();

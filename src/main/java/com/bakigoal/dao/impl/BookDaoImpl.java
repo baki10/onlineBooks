@@ -1,10 +1,9 @@
-package com.bakigoal.repository.impl;
+package com.bakigoal.dao.impl;
 
-import com.bakigoal.repository.BookDao;
+import com.bakigoal.dao.BookDao;
 import com.bakigoal.model.Book;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
 import java.util.Random;
 
 /**

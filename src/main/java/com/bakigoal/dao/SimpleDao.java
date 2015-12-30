@@ -1,4 +1,4 @@
-package com.bakigoal.repository;
+package com.bakigoal.dao;
 
 /**
  * Created by ilmir on 17.12.15.

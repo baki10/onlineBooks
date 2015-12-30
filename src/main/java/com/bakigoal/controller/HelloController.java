@@ -1,6 +1,7 @@
-package com.bakigoal.web;
+package com.bakigoal.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +16,7 @@ public class HelloController {
 
     model.addAttribute("message", "Spring 4 MVC Hello World");
     model.addAttribute("name", "Bakigoal");
-    model.addAttribute("title","Title from HelloController");
+    model.addAttribute("title", "Title from HelloController");
     return "hello";
 
   }
@@ -24,7 +25,17 @@ public class HelloController {
   public String printWelcome(HttpSession session) {
     session.invalidate();
     return "redirect:home";
+  }
 
+  @RequestMapping(value = "/login", method = RequestMethod.GET)
+  public String loginPage(Model model){
+    return "login";
+  }
+
+  @RequestMapping(value = "/error", method = RequestMethod.GET)
+  public String errorPage(Model model){
+    model.addAttribute("errorMessage", "Access denied!!!");
+    return "hello";
   }
 
 }

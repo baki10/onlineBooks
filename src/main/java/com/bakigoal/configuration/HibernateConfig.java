@@ -1,4 +1,4 @@
-package com.bakigoal.servlet.config;
+package com.bakigoal.configuration;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;

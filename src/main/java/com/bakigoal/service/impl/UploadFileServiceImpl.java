@@ -1,6 +1,6 @@
 package com.bakigoal.service.impl;
 
-import com.bakigoal.repository.SimpleDao;
+import com.bakigoal.dao.SimpleDao;
 import com.bakigoal.model.UploadFile;
 import com.bakigoal.service.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,6 @@ public class UploadFileServiceImpl implements UploadFileService {
 
   @Override
   public UploadFile getById(Long id) {
-    simpleDao.setEntityClass(UploadFile.class);
-    return (UploadFile) simpleDao.findById(id);
+    return (UploadFile) simpleDao.findById(UploadFile.class, id);
   }
 }

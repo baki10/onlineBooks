@@ -10,7 +10,13 @@
     <c:import url="fragments/header.jsp"/>
 
   <div class="container">
-	<h1>${title}</h1>
+	  <c:if test="${not empty errorMessage}">
+		  <h1 style="color: red">${errorMessage}</h1>
+	  </c:if>
+
+	  <c:if test="${empty errorMessage}">
+		  <h1>${title}</h1>
+	  </c:if>
   </div>
  
 <div class="container">

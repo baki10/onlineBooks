@@ -1,6 +1,6 @@
-package com.bakigoal.repository.impl;
+package com.bakigoal.dao.impl;
 
-import com.bakigoal.repository.BaseDao;
+import com.bakigoal.dao.BaseDao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,7 +16,7 @@ import java.util.List;
  * @author ilmir
  */
 @Repository
-public class BaseDaoImpl<T, P> implements BaseDao<T, P> {
+public class BaseDaoImpl<T, P extends Serializable> implements BaseDao<T, P> {
 
   @Autowired
   private SessionFactory sessionFactory;
@@ -43,6 +43,11 @@ public class BaseDaoImpl<T, P> implements BaseDao<T, P> {
   @Override
   public T findById(P id) {
     return (T) getSession().get(entityClass, (Serializable) id);
+  }
+
+  @Override
+  public Object findById(Class aClass, Serializable id) {
+    return getSession().get(aClass, id);
   }
 
   @Override

@@ -1,6 +1,6 @@
-package com.bakigoal.repository.impl;
+package com.bakigoal.dao.impl;
 
-import com.bakigoal.repository.SimpleDao;
+import com.bakigoal.dao.SimpleDao;
 import org.springframework.stereotype.Repository;
 
 /**

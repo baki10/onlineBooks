@@ -21,6 +21,9 @@ public class FilesUtil {
 
     // Get all files in directory
     File[] files = directory.listFiles();
+    if (files == null) {
+      return;
+    }
     for (File file : files) {
       // Delete each file
       if (!file.delete()) {

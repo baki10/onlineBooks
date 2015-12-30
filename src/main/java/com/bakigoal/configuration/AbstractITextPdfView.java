@@ -1,4 +1,4 @@
-package com.bakigoal.servlet.config;
+package com.bakigoal.configuration;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;

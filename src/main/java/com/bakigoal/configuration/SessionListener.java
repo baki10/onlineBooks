@@ -1,4 +1,4 @@
-package com.bakigoal.servlet.config;
+package com.bakigoal.configuration;
 
 import com.bakigoal.util.FilesUtil;
 

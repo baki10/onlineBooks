@@ -1,7 +1,5 @@
-package com.bakigoal.servlet;
+package com.bakigoal.configuration;
 
-import com.bakigoal.servlet.config.HibernateConfig;
-import com.bakigoal.servlet.config.SpringAppConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class MyWebInitializer extends
@@ -9,7 +7,7 @@ public class MyWebInitializer extends
 
   @Override
   protected Class<?>[] getServletConfigClasses() {
-    return new Class[]{SpringAppConfig.class, HibernateConfig.class};
+    return new Class[]{SpringAppConfig.class, HibernateConfig.class, SecurityConfig.class};
   }
 
   @Override
