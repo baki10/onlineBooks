@@ -13,6 +13,7 @@
 <h1>${title}</h1>
 <br/>
 <p>${message}</p>
+<a href="<c:url value="/logout" />">Logout</a>
 <!--ends body-->
 <c:import url="fragments/footer.jsp"/>
 </body>
