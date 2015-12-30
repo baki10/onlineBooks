@@ -27,15 +27,4 @@ public class HelloController {
     return "redirect:home";
   }
 
-  @RequestMapping(value = "/login", method = RequestMethod.GET)
-  public String loginPage(Model model){
-    return "login";
-  }
-
-  @RequestMapping(value = "/error", method = RequestMethod.GET)
-  public String errorPage(Model model){
-    model.addAttribute("errorMessage", "Access denied!!!");
-    return "hello";
-  }
-
 }
