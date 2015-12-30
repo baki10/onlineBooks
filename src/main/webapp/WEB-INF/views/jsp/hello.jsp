@@ -36,6 +36,12 @@
 			<a class="btn btn-primary btn-lg" href="<c:url value="/uploadedFiles"/>"  role="button">Uploaded files</a>
 		</p>
 	</div>
+	  <div class="col-md-4">
+		  <h2>Add user</h2>
+		  <p>
+			  <a class="btn btn-primary btn-lg" href="<c:url value="/newUser"/>"  role="button">New user</a>
+		  </p>
+	  </div>
 
   </div>
 

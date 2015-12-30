@@ -24,7 +24,7 @@ public class HelloController {
   @RequestMapping(value = {"/endSession"}, method = RequestMethod.GET)
   public String printWelcome(HttpSession session) {
     session.invalidate();
-    return "redirect:home";
+    return "redirect:/home";
   }
 
 }
